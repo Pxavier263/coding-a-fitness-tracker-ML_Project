@@ -6,20 +6,20 @@ from glob import glob
 # Read single CSV file
 # --------------------------------------------------------------
 single_file_acc = pd.read_csv(
-    "data/raw/MetaMotion/A-bench-heavy2-rpe8_MetaWear_2019-01-11T16.10.08.270_C42732BE255C_Accelerometer_12.500Hz_1.4.4.csv"
+    "../../data/raw/MetaMotion/A-bench-heavy2-rpe8_MetaWear_2019-01-11T16.10.08.270_C42732BE255C_Accelerometer_12.500Hz_1.4.4.csv"
 )
 single_file_gyr = pd.read_csv(
-    "data/raw/MetaMotion/A-bench-heavy2-rpe8_MetaWear_2019-01-11T16.10.08.270_C42732BE255C_Gyroscope_25.000Hz_1.4.4.csv"
+    "../../data/raw/MetaMotion/A-bench-heavy2-rpe8_MetaWear_2019-01-11T16.10.08.270_C42732BE255C_Gyroscope_25.000Hz_1.4.4.csv"
 )
 # --------------------------------------------------------------
 # List all data in data/raw/MetaMotion
 # --------------------------------------------------------------
-files = glob("data/raw/MetaMotion/*.csv")
+files = glob("../../data/raw/MetaMotion/*.csv")
 len(files)
 # --------------------------------------------------------------
 # Extract features from filename
 # --------------------------------------------------------------
-data_path = "data/raw/MetaMotion/"
+data_path = "../../data/raw/MetaMotion/"
 f = files[0]
 
 participant = f.split("-")[0][-1]
@@ -190,4 +190,4 @@ data_resampled["set"] = data_resampled["set"].astype("int")
 # --------------------------------------------------------------
 # Export dataset
 # --------------------------------------------------------------
-data_resampled.to_pickle("data/interim/data_resampled.pkl")
+data_resampled.to_pickle("../../data/interim/01_data_resampled.pkl")
